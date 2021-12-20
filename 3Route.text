@@ -1,0 +1,113 @@
+- 3.How to route this page?
+
+    ~ Create a new page and name it "about.vue" in pages folder.
+
+    ~ "about.vue" file:
+        <template>
+            <h1>About</h1>
+        </template>
+
+    ~ "index.vue" file:
+        <template>
+         <div>
+          <header>
+            <ul>
+             <li><NuxtLink to="/">Home</NuxtLink></li>                      - <NuxtLink> == Stop Page Reoloading
+             <li><NuxtLink to="/about">About</NuxtLink></li>
+            </ul>
+          </header>
+        <Home />
+        </div>
+    </template>
+    
+    <script>
+    export default {
+    }
+    </script>
+
+    ~ Create a new folder "layouts" in the root of the project.
+
+    ~ Create a new file "default.vue" in the "layouts" folder.
+        All the "pages" will follow this layout.
+
+    ~ "default.vue" file:
+        <template>
+            <div>
+                <Header />                      - Store Header Component
+                <Nuxt />
+            </div>
+        </template>
+
+    ~ we can store Header Component so, we need to create a new file "Header.vue" in the components folder.
+
+    ~ "Header.vue" file:
+        cut the Header section from "index.vue" file and paste it in "Header.vue" file.
+            <template>
+              <div>
+                <header>
+                    <ul>
+                        <li><NuxtLink to="/">Home</NuxtLink></li>
+                        <li><NuxtLink to="/about">About</NuxtLink></li>
+                    </ul>
+                </header>
+              </div>
+            </template>
+
+    ~ run the server (npm run dev) and check this out
+    ~ If I can click Home, Home page redirect
+    ~ If I can click About, About page redirect
+
+    ~ Make a new component "Footer.vue" in components folder.
+
+    ~ "Footer.vue" file:
+        <template>
+            <footer>
+                <p>Copyright &copy; 2021.</p>
+            </footer>
+        </template>
+
+    ~ Declare the Footer component in "default.vue" file.
+        <template>
+            <div>
+                <Header />                      - Store Header Component
+                <Nuxt />                        - Store Home component and About page
+                <Footer />                      - Store Footer Component
+            </div>
+        </template>
+
+
+- 4.How to style Footer component?
+
+    ~ "Footer.vue" file:
+        <template>
+            <footer>
+                <p>Copyright &copy; 2021.</p>
+            </footer>
+        </template>
+
+        <style scoped>
+            footer {
+                padding: 1px;
+                box-sizing: border-box;
+                background: #eee
+            }   
+        </style>
+
+
+    ~ Global style for all pages and component.
+    ~ "default.vue" file:
+        <template>
+            <div>
+                <Header />
+                <Nuxt />
+                <Footer />
+            </div>
+        </template>
+
+        <style>
+            body{
+                margin: 5;
+                background-color: darkseagreen;
+                font-family: cursive;
+            }
+        </style>

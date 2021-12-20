@@ -1,0 +1,113 @@
+- 5.How to create an app in NuxtJs?
+
+    ~ create a new folder "users" in pages folder.
+
+    ~ create a new file "index.vue" in "users" folder.
+
+    ~ "index.vue" file:
+        <template>
+            <h1>Users</h1>
+        </template>
+
+    ~ Now we can declare Users in Header component.
+    ~ "Header.vue" file:
+        <template>
+            <div>
+                <header>
+                    <ul>
+                        <li><NuxtLink to="/">Home</NuxtLink></li>
+                        <li><NuxtLink to="/about">About</NuxtLink></li>
+                        <li><NuxtLink to="/users">Users</NuxtLink></li>                 - add this
+                    </ul>
+                </header>
+            </div>
+        </template>
+
+    ~ "index.vue" file:
+        <template>
+            <div>
+                <h1>{{title}}</h1>
+                <ul>
+                    <li v-for="user in users" :key="user.id">{{user.name}}</li>
+                </ul>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            data(){
+                return{
+                    title: 'User List',                             
+                    users: []
+                }
+            },
+            created(){
+                fetch('https://jsonplaceholder.typicode.com/users')         - fake api fetch it
+                .then(response => response.json())
+                .then(json => {
+                    this.users = json;                      - this keyword se API ke data ko fetch kar sakte hai.
+                })
+            }
+        }
+        </script>
+
+    ~ create a new file "_id.vue" in "users" folder.
+        <template>
+            <div>
+                <h1><b>{{user.name}}</b></h1>
+                <p><b>Username:</b>{{user.username}}</p>
+                <p><b>Email:</b>{{user.email}}</p>
+                <p><b>Address:</b>{{user.address}}</p>
+                <p><b>Phone:</b>{{user.phone}}</p>
+                <p><b>Website:</b>{{user.website}}</p>
+                <p><b>Company:</b>{{user.company}}</p>
+                <NuxtLink to="/users">Back to Users</NuxtLink>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            data(){
+                return{ 
+                    user: {}                                - user object
+                }
+            },
+            created(){
+                fetch('https://jsonplaceholder.typicode.com/users/' + this.$route.params.id)     - fake api data fetch it
+                .then(response => response.json())
+                .then(json => {
+                    this.user = json;                                   - store the data in user object.
+                })
+            }
+        }
+        </script>
+
+    ~ "index.vue" file:
+        <template>
+            <div>
+                <h1>{{title}}</h1>
+                <ul>
+                    <li v-for="user in users" :key="user.id">
+                        <NuxtLink :to="'/users/' + user.id">{{user.name}}</NuxtLink>   - add this  - :to = : will be used for dynamic
+                    </li>
+                </ul>
+            </div>
+        </template>
+
+        <script>
+        export default {
+            data(){
+                return{
+                    title: 'User List',                             
+                    users: []
+                }
+            },
+            created(){
+                fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(json => {
+                    this.users = json;
+                })
+            }
+        }
+        </script>

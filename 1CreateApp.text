@@ -1,0 +1,25 @@
+- 1.How to create app in NuxtJS Framework?
+
+    ~ Create a Empty Folder in your Desktop and name it as NuxtJs.
+
+    ~ Open cmd
+    
+    ~ npm init nuxt-app nuxt-test(nuxt-test is project/app name)
+        Project name: nuxt-test 
+        Programming language: JavaScript
+        Package manager: Npm
+        UI framework: None        
+        Nuxt.js modules: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+        Linting tools: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+        Testing framework: None
+        Rendering mode: Universal (SSR / SSG)
+        Deployment target: Static (Static/Jamstack hosting)
+        Development tools: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+        What is your GitHub username? jigneshbhimani
+        Version control system: None
+
+    ~ cd nuxt-test
+    
+    ~ npm run dev
+
+    ~ run the server : http://localhost:3000/

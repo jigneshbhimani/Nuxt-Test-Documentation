@@ -1,0 +1,15 @@
+- 6.How to deploy NuxtJs in Surge (https://surge.sh/)?
+
+    ~ stop the server (ctrl+c)
+
+    ~ npm run build
+
+    ~ npm run generate (to generate the static files) (automatically create a "dist" folder for deployment)
+
+    ~ Install global surge (npm install --global surge)
+
+    ~ cd .\dist\
+
+    ~ surge
+
+    

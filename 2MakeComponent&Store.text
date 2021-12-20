@@ -1,0 +1,19 @@
+- 2.How to make component and how to store it?
+
+    ~ Create a new component "Home.vue" in components folder. (Another component file deleted)
+
+    ~ "Home.vue" file:
+        <template>
+            <h1>Home</h1>                      
+        </template>
+    
+    ~ Hello.vue component store in pages/index.vue file.
+    
+    ~ "index.vue" file:
+        <template>
+            <Hello />                       - Store it here
+        </template>
+    
+        <script>
+            export default {}
+        </script>
